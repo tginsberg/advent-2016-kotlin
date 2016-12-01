@@ -32,5 +32,5 @@ dependencies {
     testCompile "org.jetbrains.spek:spek-api:$spek_version"
     testCompile "org.assertj:assertj-core:$assertj_version"
     testRuntime "org.jetbrains.spek:spek-junit-platform-engine:$spek_version"
-
+    testRuntime "org.junit.platform:junit-platform-console:$junit_gradle_version"
 }
