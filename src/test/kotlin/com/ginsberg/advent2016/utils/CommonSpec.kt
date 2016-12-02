@@ -18,4 +18,10 @@ class CommonSpec : Spek({
             assertThat(Common.fileToString("read_file_test_1.txt", "::")).isEqualTo("A::B::C")
         }
     }
+
+    describe("load file to List of String") {
+        it("should read the file properly") {
+            assertThat(Common.readFile("read_file_test_1.txt")).isEqualTo(listOf("A", "B", "C"))
+        }
+    }
 })

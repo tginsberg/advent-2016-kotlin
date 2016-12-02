@@ -14,5 +14,11 @@ object Common {
         File(javaClass.classLoader.getResource(fileName).toURI())
                 .readLines()
                 .reduce { a, b -> "$a$separator$b" }
+
+    /**
+     * Given a file on the classpath, return its contents as a List of Strings.
+     */
+    fun readFile(fileName: String): List<String> =
+            File(javaClass.classLoader.getResource(fileName).toURI()).readLines()
 }
 
