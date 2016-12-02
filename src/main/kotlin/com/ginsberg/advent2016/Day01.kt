@@ -18,7 +18,9 @@ package com.ginsberg.advent2016
 class Day01(instructionText: String) {
 
     private val instructions = inputToInstructions(instructionText)
+
     private data class Instruction(val move: Int = 1, val turn: Char? = null)
+
     private data class State(val x: Int = 0,
                              val y: Int = 0,
                              val facing: Char = 'N') {
@@ -47,7 +49,6 @@ class Day01(instructionText: String) {
                     inner(beenTo + state.coordinates, path.drop(1), instruct(state, path[0]))
                 }
             }
-        println(instructionToSteps(instructions))
         return inner(emptySet(), instructionToSteps(instructions))
     }
 
