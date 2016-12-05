@@ -57,11 +57,7 @@ class Day05(private val doorId: String) {
 
     // Common sequence logic (increment, hash, filter)
     private fun generateHashes(): Sequence<String> =
-        generateSequence(
-            Pair(1, md5("${doorId}1")),
-            { Pair(it.first+1, md5("$doorId${it.first}")) }
-        )
-            .map { it.second }
+        generateSequence(0, Int::inc)
+            .map { md5("$doorId$it")}
             .filter { it.startsWith("00000") }
-
 }
