@@ -35,7 +35,7 @@ class Day07Spec : Spek({
             }
 
             it("should answer the question with provided input") {
-                assertThat(Day07(Common.readFile("day_07_input.txt")).solvePart2()).isEqualTo(115)
+                assertThat(Day07(Common.readFile("day_07_input.txt")).solvePart2()).isEqualTo(231)
             }
         }
 
