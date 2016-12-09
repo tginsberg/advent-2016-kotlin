@@ -51,7 +51,10 @@ class Day09(private val input: String) {
             else -> {
                 val digits = parseDigitsFromHead(rest)
                 val headless = rest.substringAfter(")")
-                decodeV1Length(headless.substring(digits.first), carry + (digits.first * digits.second))
+                decodeV1Length(
+                    headless.substring(digits.first),
+                    carry + (digits.first * digits.second)
+                )
             }
         }
 
@@ -62,7 +65,10 @@ class Day09(private val input: String) {
             else -> {
                 val digits = parseDigitsFromHead(rest)
                 val headless = rest.substringAfter(")")
-                decodeV2Length(headless.substring(digits.first), carry + ((digits.second) * decodeV2Length(headless.substring(0, digits.first))))
+                decodeV2Length(
+                    headless.substring(digits.first),
+                    carry + ((digits.second) * decodeV2Length(headless.substring(0, digits.first)))
+                )
             }
         }
 
