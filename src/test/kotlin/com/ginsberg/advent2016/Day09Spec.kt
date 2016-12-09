@@ -15,15 +15,15 @@ class Day09Spec : Spek({
 
         describe("part 1") {
             it("should answer example inputs properly") {
-                assertThat(Day09("ADVENT").solvePart1()).isEqualTo("ADVENT".length)
-                assertThat(Day09("A(1x5)BC").solvePart1()).isEqualTo("ABBBBBC".length)
-                assertThat(Day09("(3x3)XYZ").solvePart1()).isEqualTo("XYZXYZXYZ".length)
-                assertThat(Day09("(6x1)(1x3)A").solvePart1()).isEqualTo("(1x3)A".length)
-                assertThat(Day09("X(8x2)(3x3)ABCY").solvePart1()).isEqualTo("X(3x3)ABC(3x3)ABCY".length)
+                assertThat(Day09("ADVENT").solvePart1()).isEqualTo("ADVENT".length.toLong())
+                assertThat(Day09("A(1x5)BC").solvePart1()).isEqualTo("ABBBBBC".length.toLong())
+                assertThat(Day09("(3x3)XYZ").solvePart1()).isEqualTo("XYZXYZXYZ".length.toLong())
+                assertThat(Day09("(6x1)(1x3)A").solvePart1()).isEqualTo("(1x3)A".length.toLong())
+                assertThat(Day09("X(8x2)(3x3)ABCY").solvePart1()).isEqualTo("X(3x3)ABC(3x3)ABCY".length.toLong())
             }
 
             it("should answer the question with provided input") {
-                assertThat(Day09(Common.fileToString("day_09_input.txt")).solvePart1()).isEqualTo(183269)
+                assertThat(Day09(Common.fileToString("day_09_input.txt")).solvePart1()).isEqualTo(183269L)
             }
         }
 

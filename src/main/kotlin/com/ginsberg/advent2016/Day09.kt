@@ -35,7 +35,7 @@ class Day09(private val input: String) {
     /**
      * What is the decompressed length of the file (your puzzle input)?
      */
-    fun solvePart1(): Int =
+    fun solvePart1(): Long =
         decodeV1Length(input.replace("""\s+""", ""))
 
     /**
@@ -44,38 +44,30 @@ class Day09(private val input: String) {
     fun solvePart2(): Long =
         decodeV2Length(input.replace("""\s+""", ""))
 
-    private fun decodeV1Length(s: String): Int {
-        tailrec fun inner(carry: Int, rest: String): Int {
-            return when {
-                rest.isEmpty() -> carry
-                !rest.startsWith("(") -> inner(carry + rest.substringBefore("(").length, rest.substringAt("("))
-                else -> {
-                    val digits = parseDigitsFromHead(rest)
-                    val headless = rest.substringAfter(")")
-                    inner(carry + (digits.first * digits.second), headless.substring(digits.first))
-                }
+    private tailrec fun decodeV1Length(rest: String, carry: Long = 0): Long =
+        when {
+            rest.isEmpty() -> carry
+            !rest.startsWith("(") -> decodeV1Length(rest.substringAt("("), carry + rest.substringBefore("(").length)
+            else -> {
+                val digits = parseDigitsFromHead(rest)
+                val headless = rest.substringAfter(")")
+                decodeV1Length(headless.substring(digits.first), carry + (digits.first * digits.second))
             }
         }
-        return inner(0, s)
-    }
 
-    private fun decodeV2Length(s: String): Long {
-        tailrec fun inner(carry: Long, rest: String): Long {
-            return when {
-                rest.isEmpty() -> carry
-                !rest.startsWith("(") -> inner(carry + rest.substringBefore("(").length, rest.substringAt("("))
-                else -> {
-                    val digits = parseDigitsFromHead(rest)
-                    val headless = rest.substringAfter(")")
-                    inner(carry + ((digits.second) * decodeV2Length(headless.substring(0, digits.first))), headless.substring(digits.first))
-                }
+    private tailrec fun decodeV2Length(rest: String, carry: Long = 0L): Long =
+        when {
+            rest.isEmpty() -> carry
+            !rest.startsWith("(") -> decodeV2Length(rest.substringAt("("), carry + rest.substringBefore("(").length)
+            else -> {
+                val digits = parseDigitsFromHead(rest)
+                val headless = rest.substringAfter(")")
+                decodeV2Length(headless.substring(digits.first), carry + ((digits.second) * decodeV2Length(headless.substring(0, digits.first))))
             }
         }
-        return inner(0, s)
-    }
 
     fun String.substringAt(str: String): String =
-        if(this.contains(str))  str + this.substringAfter(str)
+        if (this.contains(str)) str + this.substringAfter(str)
         else ""
 
     fun parseDigitsFromHead(line: String): Pair<Int, Int> =
