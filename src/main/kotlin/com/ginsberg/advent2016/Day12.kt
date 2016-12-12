@@ -74,41 +74,41 @@ class Day12(input: List<String>) {
         fun pcDelta(v: Int) = this.copy(pc = pc + v)
     }
 
-    sealed class Instruction(val register: Char) {
+    sealed class Instruction() {
         abstract fun execute(state: State): State
-        class CopyInt(register: Char, val amount: Int) : Instruction(register) {
+        class CopyInt(val register: Char, val amount: Int) : Instruction() {
             override fun execute(state: State): State =
                 state.copy(state.registers.plus(register to amount)).pcDelta(1)
         }
 
-        class CopyRegister(val fromReg: Char, val toReg: Char) : Instruction(toReg) {
+        class CopyRegister(val fromReg: Char, val toReg: Char) : Instruction() {
             override fun execute(state: State): State =
                 state.copy(state.registers.plus(toReg to state.registers[fromReg]!!)).pcDelta(1)
         }
 
-        class Inc(register: Char) : Instruction(register) {
+        class Inc(val register: Char) : Instruction() {
             override fun execute(state: State): State =
                 state.copy(state.registers.plus(register to state.registers[register]!!+1)).pcDelta(1)
         }
 
-        class Dec(register: Char) : Instruction(register) {
+        class Dec(val register: Char) : Instruction() {
             override fun execute(state: State): State =
                 state.copy(state.registers.plus(register to state.registers[register]!!-1)).pcDelta(1)
         }
 
-        class JumpInt(val compare: Int, val jump: Int) : Instruction('X') {
+        class JumpInt(val compare: Int, val jump: Int) : Instruction() {
             override fun execute(state: State): State =
                 if(compare == 0) state.pcDelta(1)
                 else state.pcDelta(jump)
         }
 
-        class JumpReg(register: Char, val jump: Int) : Instruction(register) {
+        class JumpReg(val register: Char, val jump: Int) : Instruction() {
             override fun execute(state: State): State =
                 if(state.registers[register] == 0) state.pcDelta(1)
                 else state.pcDelta(jump)
         }
 
-        object NoOp : Instruction('?') {
+        object NoOp : Instruction() {
             override fun execute(state: State): State =
                 state.pcDelta(1)
         }
