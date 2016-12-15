@@ -10,19 +10,6 @@ package com.ginsberg.advent2016
  *
  * From http://adventofcode.com/2016/day/6
  *
- * Something is jamming your communications with Santa. Fortunately, your signal is only
- * partially jammed, and protocol in situations like this is to switch to a simple repetition
- * code to get the message through.
- *
- * In this model, the same message is sent repeatedly. You've recorded the repeating message
- * signal (your puzzle input), but the data seems quite corrupted - almost too badly to recover.
- * Almost.
- *
- * All you need to do is figure out which character is most frequent for each position. For example,
- * suppose you had recorded the following messages:
- *
- * [See Unit Test]
- *
  */
 class Day06(val input: List<String>) {
 

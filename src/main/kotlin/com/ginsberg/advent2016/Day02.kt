@@ -11,14 +11,6 @@ import com.ginsberg.advent2016.utils.toHex
  *
  * From http://adventofcode.com/2016/day/2
  *
- * You arrive at Easter Bunny Headquarters under cover of darkness.
- * However, you left in such a rush that you forgot to use the bathroom!
- * Fancy office buildings like this one usually have keypad locks on their
- * bathrooms, so you search the front desk for the code.
- *
- * "In order to improve security," the document you find says, "bathroom codes
- * will no longer be written down. Instead, please memorize and follow the procedure
- * below to access the bathrooms."
  */
 class Day02(val instructions: List<String>, val startingPoint: Int = 5) {
 

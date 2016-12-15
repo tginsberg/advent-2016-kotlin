@@ -10,18 +10,6 @@ package com.ginsberg.advent2016
  *
  * From http://adventofcode.com/2016/day/8
  *
- * You come across a door implementing what you can only assume is an implementation of two-factor
- * authentication after a long game of requirements telephone.
- *
- * To get past the door, you first swipe a keycard (no problem; there was one on a nearby desk).
- * Then, it displays a code on a little screen, and you type that code on a keypad. Then, presumably,
- * the door unlocks.
- *
- * Unfortunately, the screen has been smashed. After a few minutes, you've taken everything apart and
- * figured out how it works. Now you just have to work out what the screen would have displayed.
- *
- * [See Unit Test]
- *
  */
 class Day08(input: List<String>, val height: Int = 6, val width: Int = 50) {
 

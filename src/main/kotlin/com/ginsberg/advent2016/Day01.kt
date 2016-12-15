@@ -10,10 +10,6 @@ package com.ginsberg.advent2016
  *
  * From http://adventofcode.com/2016/day/1
  *
- * You're airdropped near Easter Bunny Headquarters in a city somewhere. "Near",
- * unfortunately, is as close as you can get - the instructions on the Easter
- * Bunny Recruiting Document the Elves intercepted start here, and nobody
- * had time to work them out further.
  */
 class Day01(instructionText: String) {
 
