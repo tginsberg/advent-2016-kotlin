@@ -28,13 +28,7 @@ class Day16(val input: String) {
     }
 
     fun dataStream(initial: String): Sequence<String> {
-        fun next(s: String): String =
-            s + '0' + s.reversed()
-                .map{ when(it) {
-                    '0' -> '1'
-                    '1' -> '0'
-                    else -> it
-                }}.joinToString("")
+        fun next(s: String): String = s + '0' + s.reversed().map{ if(it == '1') '0' else '1'}.joinToString("")
         return generateSequence(
             next(initial),
             { next(it) }
