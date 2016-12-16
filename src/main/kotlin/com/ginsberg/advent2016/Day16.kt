@@ -23,12 +23,18 @@ class Day16(val input: String) {
         val check = (0..s.length - 1 step 2)
             .map { s.substring(it, it + 2) }
             .map { if (it[0] == it[1]) "1" else "0" }
-            .joinToString(separator = "")
+            .joinToString("")
         return if (check.length % 2 == 1) check else checksum(check)
     }
 
     fun dataStream(initial: String): Sequence<String> {
-        fun next(s: String): String = s + '0' + s.reversed().replace('1', 'o').replace('0', '1').replace('o', '0')
+        fun next(s: String): String =
+            s + '0' + s.reversed()
+                .map{ when(it) {
+                    '0' -> '1'
+                    '1' -> '0'
+                    else -> it
+                }}.joinToString("")
         return generateSequence(
             next(initial),
             { next(it) }
