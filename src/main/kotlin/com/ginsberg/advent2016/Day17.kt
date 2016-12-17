@@ -6,7 +6,7 @@ package com.ginsberg.advent2016
 
 import com.ginsberg.advent2016.utils.toHex
 import java.security.MessageDigest
-import java.util.*
+import java.util.ArrayDeque
 
 
 /**
