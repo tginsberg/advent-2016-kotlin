@@ -24,6 +24,6 @@ class Day18(val input: String) {
     private fun nextRow(row: String): String =
         (0..row.length - 3)
             .map { row.substring(it, it + 3) }
-            .map { if (it in trapPatterns) "^" else "." }
+            .map { if (it in trapPatterns) '^' else '.' }
             .joinToString("")
 }
