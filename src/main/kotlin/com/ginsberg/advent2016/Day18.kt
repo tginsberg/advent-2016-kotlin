@@ -13,8 +13,6 @@ package com.ginsberg.advent2016
  */
 class Day18(val input: String) {
 
-    private val trapPatterns = setOf("^..", "^^.", ".^^", "..^")
-
     fun solve(rows: Int): Int =
         rows(input).take(rows).map { it.count { it == '.' }}.sum()
 
@@ -23,7 +21,6 @@ class Day18(val input: String) {
 
     private fun nextRow(row: String): String =
         (0..row.length - 3)
-            .map { row.substring(it, it + 3) }
-            .map { if (it in trapPatterns) '^' else '.' }
+            .map { if (row[it] != row[it+2]) '^' else '.' }
             .joinToString("")
 }
