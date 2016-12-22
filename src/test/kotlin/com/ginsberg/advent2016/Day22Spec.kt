@@ -26,6 +26,13 @@ class Day22Spec : Spek({
                 assertThat(Day22(Common.readFile("day_22_input.txt")).solvePart1()).isEqualTo(941)
             }
         }
+
+        describe("part 2") {
+
+            it("should answer the question with provided input") {
+                assertThat(Day22(Common.readFile("day_22_input.txt")).solvePart2()).isEqualTo(249)
+            }
+        }
     }
 })
 
