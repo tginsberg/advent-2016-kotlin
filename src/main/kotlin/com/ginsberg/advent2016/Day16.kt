@@ -31,7 +31,7 @@ class Day16(val input: String) {
         fun next(s: String): String = s + '0' + s.reversed().map{ if(it == '1') '0' else '1'}.joinToString("")
         return generateSequence(
             next(initial),
-            { next(it) }
+            ::next
         )
     }
 }

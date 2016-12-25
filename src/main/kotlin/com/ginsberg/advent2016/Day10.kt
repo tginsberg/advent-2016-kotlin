@@ -86,8 +86,7 @@ class Day10(input: List<String>, val find: Set<Int> = setOf(17, 61)) {
             inventory.add(chip)
         }
 
-        class Output(id: String) : ChipHolder(id) {
-        }
+        class Output(id: String) : ChipHolder(id)
 
         class Bot(id: String, val watcher: (Bot) -> Unit) : ChipHolder(id) {
             var lowTo: ChipHolder? = null
